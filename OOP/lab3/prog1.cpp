@@ -1,3 +1,16 @@
+/**Write a program in C++ for handling n number of bank account
+holders using array of objects. Define a class to represent a bank
+account which includes the following members as Data members:
+a) Name_of_the_depositor
+b) Account_Number
+c)Withdraw_amount
+d)Balance
+Member Functions:
+a) To assign initial values
+b) To deposit an amount 
+c) To withdraw an amount after checking the balance
+d) To display name and balance. */
+
 #include <iostream>
 #include <string>
 using namespace std;
