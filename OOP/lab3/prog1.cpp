@@ -55,15 +55,15 @@ int main() {
     int amount;
     Bank_Account curr_acc, acc1, acc2, acc3;
     Bank_Account accounts[] = {acc1, acc2, acc3};
-    acc1.init();
-    acc1.display();
+    accounts[0].init();
+    accounts[0].display();
     cout << "Enter the amount to be deposited : ";
     cin >> amount;
-    acc1.deposit(amount);
-    acc1.display();
+    accounts[0].deposit(amount);
+    accounts[0].display();
     cout << "Enter the amount to be withdrawn : ";
     cin >> amount;
-    acc1.withdraw(amount);
-    acc1.display();
+    accounts[0].withdraw(amount);
+    accounts[0].display();
     return 0;
 }
