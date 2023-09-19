@@ -16,7 +16,7 @@ public:
         imag = i;
     }
 
-    Complex add(const Complex& other) {
+    Complex add(Complex &other) {
         double newReal = real + other.real;
         double newImag = imag + other.imag;
         return Complex(newReal, newImag);
@@ -26,9 +26,7 @@ public:
         cout << real << " + " << imag << "i" << endl;
     }
 
-    ~Complex() {
-        cout << "Destructor called." << endl;
-    }
+    ~Complex() {}
 };
 
 int main() {
