@@ -20,12 +20,10 @@ public:
         cout << "Constant member function called. regularData: " << regularData << endl;
     }
 };
-int MyClass::staticData = 0;
+int MyClass::staticData = 20;
 int main()
 {
     MyClass obj1(10);
-    MyClass obj2(20);
-
     cout << "regularData: " << obj1.regularData << endl;
     cout << "staticData: " << MyClass::staticData << endl;
     obj1.regularMemberFunction();
