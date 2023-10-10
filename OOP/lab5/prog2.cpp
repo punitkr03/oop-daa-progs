@@ -19,10 +19,6 @@ public:
     {
         cout << "Constant member function called. regularData: " << regularData << endl;
     }
-    static void staticConstMemberFunction()
-    {
-        cout << "Static constant member function called. staticData: " << staticData << endl;
-    }
 };
 int MyClass::staticData = 0;
 int main()
@@ -35,6 +31,5 @@ int main()
     obj1.regularMemberFunction();
     MyClass::staticMemberFunction();
     obj1.constMemberFunction();
-    MyClass::staticConstMemberFunction();
     return 0;
 }
