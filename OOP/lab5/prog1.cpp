@@ -8,14 +8,14 @@ class BankCustomer
 private:
     string name;
     string accountType;
-    bool isActive;
+    bool status;
     double balance;
     time_t lastTransactionDate;
 
 public:
     int accountNumber;
     BankCustomer(string name, int accountNumber, string accountType, double balance)
-        : name(name), accountNumber(accountNumber), accountType(accountType), isActive(true), balance(balance)
+        : name(name), accountNumber(accountNumber), accountType(accountType), status(true), balance(balance)
     {
         time(&lastTransactionDate);
     }
@@ -25,7 +25,7 @@ public:
     }
     void withdrawFunds(double amount)
     {
-        if (isActive)
+        if (status)
         {
             if (balance - amount >= 1000)
             {
@@ -52,7 +52,7 @@ public:
 
         if (secondsDiff >= secondsInOneYear)
         {
-            isActive = false;
+            status = false;
             cout << "Account is now dormant due to inactivity." << endl;
         }
     }
@@ -64,7 +64,7 @@ int main()
     BankCustomer c2("Ken Doe", 456566, "Savings", 2000);
     BankCustomer c3("Zen Doe", 643568, "Savings", 10000);
     BankCustomer customers[3] = {c1, c2, c3};
-    int givenAcc = 643568;
+    int givenAcc = 123456;
     for (int i = 0; i < 3; i++)
     {
         if (customers[i].accountNumber == givenAcc)
