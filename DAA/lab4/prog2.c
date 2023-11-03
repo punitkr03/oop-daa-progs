@@ -4,11 +4,11 @@
 
 #define MAX_SIZE 100
 
-struct PriorityQueue
+typedef struct PriorityQueue
 {
     int arr[MAX_SIZE];
     int size;
-};
+} PQ;
 
 void swap(int *a, int *b)
 {
@@ -17,7 +17,7 @@ void swap(int *a, int *b)
     *b = temp;
 }
 
-void heapifyUp(struct PriorityQueue *queue, int index)
+void heapifyUp(PQ *queue, int index)
 {
     while (index > 0 && queue->arr[(index - 1) / 2] > queue->arr[index])
     {
@@ -26,7 +26,7 @@ void heapifyUp(struct PriorityQueue *queue, int index)
     }
 }
 
-void heapifyDown(struct PriorityQueue *queue, int index)
+void heapifyDown(PQ *queue, int index)
 {
     int left, right, smallest;
     while (1)
@@ -53,22 +53,22 @@ void heapifyDown(struct PriorityQueue *queue, int index)
     }
 }
 
-void initializeQueue(struct PriorityQueue *queue)
+void initializeQueue(PQ *queue)
 {
     queue->size = 0;
 }
 
-bool isFull(struct PriorityQueue *queue)
+bool isFull(PQ *queue)
 {
     return queue->size >= MAX_SIZE;
 }
 
-bool isEmpty(struct PriorityQueue *queue)
+bool isEmpty(PQ *queue)
 {
     return queue->size == 0;
 }
 
-void enqueue(struct PriorityQueue *queue, int value)
+void enqueue(PQ *queue, int value)
 {
     if (isFull(queue))
     {
@@ -80,7 +80,7 @@ void enqueue(struct PriorityQueue *queue, int value)
     heapifyUp(queue, queue->size++);
 }
 
-int dequeue(struct PriorityQueue *queue)
+int dequeue(PQ *queue)
 {
     if (isEmpty(queue))
     {
@@ -96,7 +96,7 @@ int dequeue(struct PriorityQueue *queue)
 
 int main()
 {
-    struct PriorityQueue queue;
+    PQ queue;
     initializeQueue(&queue);
 
     enqueue(&queue, 3);
