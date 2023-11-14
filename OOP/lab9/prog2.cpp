@@ -1,28 +1,38 @@
-//Copying the contents of one file into another file
-//Create the files file1 and file2 before running the program.
-#include <bits/stdc++.h>
+// Copying the contents of one file into another file
+// Create the files file1 and file2 before running the program.
+#include <iostream>
+#include <fstream>
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-	fstream f1;
-	fstream f2;
-
-	string ch;
-	f1.open("file1.txt", ios::in);
-	f2.open("file2.txt", ios::out);
-
-	while (!f1.eof()) {
-		getline(f1, ch);
-		f2 << ch << endl;
+	if (argc != 3)
+	{
+		cerr << "Usage: " << argv[0] << " <input_file> <output_file>" << endl;
+		return 1;
 	}
-	f1.close();
-	f2.close();
-	f2.open("file2.txt", ios::in);
-	while (!f2.eof()) {
-		getline(f2, ch);
-		cout << ch << endl;
+	const char *inputFileName = argv[1];
+	const char *outputFileName = argv[2];
+	ifstream inputFile(inputFileName, ios::binary);
+	if (!inputFile)
+	{
+		cerr << "Error opening input file: " << inputFileName << endl;
+		return 1;
 	}
-	f2.close();
+	ofstream outputFile(outputFileName, ios::binary);
+	if (!outputFile)
+	{
+		cerr << "Error opening output file: " << outputFileName << endl;
+		return 1;
+	}
+	outputFile << inputFile.rdbuf();
+	if (outputFile.fail())
+	{
+		cerr << "Error copying contents from " << inputFileName << " to " << outputFileName << endl;
+		return 1;
+	}
+
+	cout << "File copy successful." << endl;
+
 	return 0;
 }
