@@ -1,16 +1,15 @@
-
 #include <iostream>
 
-// Template function to print multiple arguments
-template <typename... Args>
-void print(Args... args) {
-    // Using fold expression to print all arguments
-    (std::cout << ... << args) << std::endl;
+// Template function definition
+template <typename T1, typename T2>
+void printValues(T1 value1, T2 value2) {
+    std::cout << value1 << std::endl;
+    std::cout << value2 << std::endl;
 }
 
 int main() {
-    // Calling the print function with different data types
-    print(10, "Hello", 3.14, 'A');
+    // Example with integers and doubles
+    printValues(10, "Hello!");
 
     return 0;
 }

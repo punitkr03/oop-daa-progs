@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -31,23 +30,6 @@ int main() {
     cout << "After sorting: ";
     for (int i = 0; i < intSize; i++) {
         cout << intArr[i] << " ";
-    }
-    cout << endl;
-
-    double doubleArr[] = {3.5, 1.2, 4.8, 2.1, 5.6};
-    int doubleSize = sizeof(doubleArr) / sizeof(doubleArr[0]);
-
-    cout << "Before sorting: ";
-    for (int i = 0; i < doubleSize; i++) {
-        cout << doubleArr[i] << " ";
-    }
-    cout << endl;
-
-    bubbleSort(doubleArr, doubleSize);
-
-    cout << "After sorting: ";
-    for (int i = 0; i < doubleSize; i++) {
-        cout << doubleArr[i] << " ";
     }
     cout << endl;
 
